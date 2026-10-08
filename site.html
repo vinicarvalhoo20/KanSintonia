@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KanSintonia - Quadro de Tarefas</title>
+  <link rel="icon" href="/assets/iconeKan.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-protegida="true">
+<header>
+  <a class="logo" href="index.html"><img src="/assets/iconeKan.png" alt="" class="logo-icone"><span>KanSintonia</span></a>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="login.html" hidden>Login</a></li>
+      <li class="item-submenu">
+        <a href="#" id="btn-sobre">Sobre ▾</a>
+        <ul class="menu-vertical" id="menu-vertical-sobre">
+          <li><a href="#" data-info="empresa">Empresa</a></li>
+          <li><a href="#" data-info="clientes">Clientes</a></li>
+        </ul>
+      </li>
+      <li class="item-submenu">
+        <a href="#" id="btn-contato">Contato ▾</a>
+        <ul class="menu-vertical" id="menu-vertical-contato">
+          <li><a href="tel:+553200000000">Telefones: (32) 0000-0000</a></li>
+          <li><a href="mailto:contato@kansintonia.com">Email: contato@kansintonia.com</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="barra-usuario">
+    <div class="perfil">
+      <div class="avatar" id="avatar-usuario" aria-hidden="true"></div>
+      <div>
+        <strong id="nome-usuario"></strong>
+        <small id="email-usuario"></small>
+        <small id="telefone-usuario"></small>
+      </div>
+    </div>
+    <button type="button" class="btn" id="btn-sair">Sair</button>
+  </section>
+
+  <h1>Quadro de Tarefas</h1>
+
+  <section class="card-form largo">
+    <h2>Nova tarefa</h2>
+    <form id="form-tarefa" class="grid-tarefa">
+      <div>
+        <label for="tarefa-titulo">Título</label>
+        <input type="text" id="tarefa-titulo" required placeholder="Ex.: Fazer slides">
+      </div>
+      <div>
+        <label for="tarefa-responsavel">Responsável</label>
+        <input type="text" id="tarefa-responsavel" placeholder="Quem fará?">
+      </div>
+      <div>
+        <label for="tarefa-prazo">Prazo</label>
+        <input type="date" id="tarefa-prazo" required>
+      </div>
+      <div>
+        <label for="tarefa-status">Status inicial</label>
+        <select id="tarefa-status">
+          <option value="todo">A fazer</option>
+          <option value="doing">Em andamento</option>
+          <option value="done">Concluído</option>
+        </select>
+      </div>
+      <div class="col-total">
+        <label for="tarefa-descricao">Descrição</label>
+        <textarea id="tarefa-descricao" rows="2" placeholder="Detalhes (opcional)"></textarea>
+      </div>
+      <div class="col-total">
+        <button type="submit" class="btn">Adicionar tarefa</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="quadro">
+    <div class="coluna">
+      <h2>A fazer <span class="contador" id="cont-todo">0</span></h2>
+      <div class="lista" id="lista-todo"></div>
+    </div>
+    <div class="coluna">
+      <h2>Em andamento <span class="contador" id="cont-doing">0</span></h2>
+      <div class="lista" id="lista-doing"></div>
+    </div>
+    <div class="coluna">
+      <h2>Concluído <span class="contador" id="cont-done">0</span></h2>
+      <div class="lista" id="lista-done"></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>Hoje é <span id="data-atual"></span></p>
+  <p>Todos os direitos reservados. Desenvolvido por: Aluno 1 e Aluno 2</p>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>

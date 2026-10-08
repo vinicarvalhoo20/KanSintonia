@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KanSintonia - Login</title>
+  <link rel="icon" href="/assets/iconeKan.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-login">
+<header>
+  <a class="logo" href="index.html"><img src="/assets/iconeKan.png" alt="" class="logo-icone"><span>KanSintonia</span></a>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li class="item-submenu">
+        <a href="#" id="btn-sobre">Sobre ▾</a>
+        <ul class="menu-vertical" id="menu-vertical-sobre">
+          <li><a href="#" data-info="empresa">Empresa</a></li>
+          <li><a href="#" data-info="clientes">Clientes</a></li>
+        </ul>
+      </li>
+      <li class="item-submenu">
+        <a href="#" id="btn-contato">Contato ▾</a>
+        <ul class="menu-vertical" id="menu-vertical-contato">
+          <li><a href="tel:+553200000000">Telefones: (32) 0000-0000</a></li>
+          <li><a href="mailto:contato@kansintonia.com">Email: contato@kansintonia.com</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="card-form">
+    <h1>Login</h1>
+    <form id="form-login" novalidate>
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" autocomplete="email" placeholder="voce@gmail.com" required>
+
+      <label for="login-senha">Senha</label>
+      <input type="password" id="login-senha" placeholder="Sua senha" required>
+
+      <p id="msg-login" class="mensagem" role="alert"></p>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+    <p class="link-extra">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+  </section>
+</main>
+<footer>
+  <p>Hoje é <span id="data-atual"></span></p>
+  <p>Todos os direitos reservados. Desenvolvido por: Aluno 1 e Aluno 2</p>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
