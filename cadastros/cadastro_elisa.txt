@@ -1,0 +1,9 @@
+KanSintonia - Dados do cadastro
+--------------------------------
+Nome: Elisa
+Endereço: Rua
+Email: elisa@gmail.com
+Senha: elisa
+Telefone: (32) 99999-9999
+CPF: 999.999.999-99
+Cadastrado em: 07/10/2026, 21:59:12
