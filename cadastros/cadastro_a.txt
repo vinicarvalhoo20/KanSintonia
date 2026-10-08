@@ -1,0 +1,9 @@
+KanSintonia - Dados do cadastro
+--------------------------------
+Nome: Vinicius Eduardo
+Endereço: Rua Jornalista José de Andrade, 670 - Centro
+Email: a@gmail.com
+Senha: 12345
+Telefone: (32) 99999-9999
+CPF: 765.545.342-40
+Cadastrado em: 07/10/2026, 21:13:23
