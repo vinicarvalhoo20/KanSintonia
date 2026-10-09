@@ -125,6 +125,7 @@ const CHAVE_USUARIOS = 'tg_usuarios';
 const CHAVE_SESSAO = 'tg_logado';
 const CHAVE_TENTATIVAS = 'tg_tentativas';
 const CHAVE_AVISO = 'tg_aviso';
+const CHAVE_PREENCHER = 'tg_preencher'; // email/senha do cadastro recém-feito, para o login
 const MAX_TENTATIVAS = 3;
 
 function lerJSON(chave, padrao) {
@@ -142,6 +143,9 @@ function usuarioLogado() {
   const email = sessionStorage.getItem(CHAVE_SESSAO);
   if (!email) return null;
   return lerJSON(CHAVE_USUARIOS, []).find(function (u) { return u.email === email; }) || null;
+}
+function lerJSON_sessao(chave) {
+  try { return JSON.parse(sessionStorage.getItem(chave)); } catch (e) { return null; }
 }
 function mostraMensagem(el, texto, tipo) {
   el.textContent = texto;
@@ -237,6 +241,8 @@ if (formCadastro) {
     usuarios.push(novoUsuario);
     salvarJSON(CHAVE_USUARIOS, usuarios); // JSON + localStorage
     baixaTxt(novoUsuario);                // cópia em .txt
+    // guarda email e senha só para a aba atual: o login abre já preenchido
+    sessionStorage.setItem(CHAVE_PREENCHER, JSON.stringify({ email: email, senha: senha }));
     mostraMensagem(msgCadastro, 'Cadastro realizado! O arquivo .txt foi baixado. Redirecionando para o login...', 'ok');
     setTimeout(function () { window.location.href = 'login.html'; }, 2000);
   });
@@ -259,6 +265,15 @@ const formLogin = document.getElementById('form-login');
 if (formLogin) {
   const msgLogin = document.getElementById('msg-login');
   const campoSenhaLogin = document.getElementById('login-senha');
+
+  // veio do cadastro? preenche email e senha automaticamente (uma única vez)
+  const preencher = lerJSON_sessao(CHAVE_PREENCHER);
+  if (preencher) {
+    document.getElementById('login-email').value = preencher.email;
+    campoSenhaLogin.value = preencher.senha;
+    sessionStorage.removeItem(CHAVE_PREENCHER);
+    mostraMensagem(msgLogin, 'Cadastro concluído! Clique em Entrar para acessar.', 'ok');
+  }
 
   formLogin.addEventListener('submit', function (event) {
     event.preventDefault();
